@@ -593,13 +593,20 @@
         «أَتَيْتُهَا، وَفِي قَلْبِي لَهَا وَطَرٌ…»
       </p>
 
-      <a
-        href="#invitation"
-        class="open-button"
-      >
-        اِفتحوا دعوتنا
-      </a>
+<button
+  class="open-button"
+  id="openInvitation"
+  type="button"
+>
+  اِفتحوا دعوتنا
+</button>
 
+<audio
+  id="weddingMusic"
+  src="wedding.mp3"
+  preload="auto"
+  loop
+></audio>
     </div>
 
   </section>
@@ -928,7 +935,17 @@
       updateCountdown,
       1000
     );
+  const openInvitation = document.getElementById("openInvitation");
+const weddingMusic = document.getElementById("weddingMusic");
 
+openInvitation.addEventListener("click", function () {
+  weddingMusic.volume = 0.35;
+  weddingMusic.play();
+
+  document.getElementById("invitation").scrollIntoView({
+    behavior: "smooth"
+  });
+});
   </script>
 
 
