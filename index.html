@@ -9,6 +9,7 @@
   <meta name="theme-color" content="#0b0a09">
 
   <style>
+
     @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
     :root {
@@ -42,61 +43,74 @@
     .opening {
       min-height: 100svh;
       position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       text-align: center;
+
       overflow: hidden;
 
       background:
         radial-gradient(
-          circle at 50% 45%,
-          rgba(200,169,107,0.12),
-          transparent 30%
+          circle at center,
+          rgba(200,169,107,0.13),
+          transparent 35%
         ),
         #0b0a09;
     }
 
-    /* Animated glow */
-
     .glow {
       position: absolute;
-      width: 450px;
-      height: 450px;
+
+      width: 430px;
+      height: 430px;
+
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(200,169,107,0.12),
+          rgba(200,169,107,0.13),
           transparent 68%
         );
 
-      animation: glowMove 7s ease-in-out infinite;
+      animation:
+        glowMove 7s ease-in-out infinite;
     }
-
-    /* Elegant frame */
 
     .frame {
       position: absolute;
-      inset: 18px;
-      border: 1px solid rgba(200,169,107,0.35);
+
+      inset: 16px;
+
+      border:
+        1px solid
+        rgba(200,169,107,0.35);
+
       pointer-events: none;
     }
 
     .frame::before,
     .frame::after {
       content: "";
+
       position: absolute;
+
       width: 55px;
       height: 55px;
-      border-color: var(--gold);
-      opacity: 0.65;
+
+      border-color:
+        var(--gold);
+
+      opacity: 0.7;
     }
 
     .frame::before {
       top: -1px;
       right: -1px;
+
       border-top: 1px solid;
       border-right: 1px solid;
     }
@@ -104,48 +118,63 @@
     .frame::after {
       bottom: -1px;
       left: -1px;
+
       border-bottom: 1px solid;
       border-left: 1px solid;
     }
 
-    /* Opening content */
-
     .opening-content {
       position: relative;
+
       z-index: 5;
+
       padding: 25px;
-      animation: entrance 2.4s ease forwards;
+
+      animation:
+        entrance 1.5s ease forwards;
     }
 
     .eyebrow {
-      opacity: 0;
-      color: var(--gold);
-      font-family: "Cormorant Garamond", serif;
+      color:
+        var(--gold);
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
       font-size: 15px;
+
       letter-spacing: 6px;
 
+      margin-bottom: 25px;
+
       animation:
-        fadeUp 1.2s ease 0.3s forwards;
+        fadeUp 1.2s ease 0.2s both;
     }
 
     .names {
-      margin: 25px 0 0;
+      margin: 0;
 
-      opacity: 0;
+      font-size:
+        clamp(54px, 15vw, 105px);
 
-      font-size: clamp(55px, 15vw, 110px);
       font-weight: 400;
+
       line-height: 1;
 
       animation:
-        fadeUp 1.5s ease 0.7s forwards;
+        fadeUp 1.4s ease 0.5s both;
     }
 
     .heart {
       display: inline-block;
 
-      color: var(--gold);
-      font-family: "Cormorant Garamond", serif;
+      color:
+        var(--gold);
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
 
       font-size: 0.55em;
 
@@ -156,93 +185,96 @@
     }
 
     .date {
-      opacity: 0;
+      margin-top: 28px;
 
-      margin-top: 30px;
+      color:
+        var(--light-gold);
 
-      color: var(--light-gold);
+      font-family:
+        "Cormorant Garamond",
+        serif;
 
-      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
 
-      font-size: 23px;
       letter-spacing: 7px;
 
       animation:
-        fadeUp 1.2s ease 1.2s forwards;
+        fadeUp 1.2s ease 1s both;
     }
 
     .verse {
-      opacity: 0;
-
-      max-width: 560px;
+      max-width: 550px;
 
       margin:
-        40px auto 0;
+        38px auto 0;
 
-      color: #e4dacb;
+      color:
+        #e5dccd;
 
-      font-size: 21px;
+      font-size: 20px;
+
       line-height: 2.1;
 
       animation:
-        fadeUp 1.2s ease 1.6s forwards;
+        fadeUp 1.2s ease 1.4s both;
     }
 
-    .open-button {
-      
+    /* =========================
+       OPEN BUTTON
+    ========================== */
 
+    .open-button {
       display: inline-block;
 
-      margin-top: 42px;
+      margin-top: 38px;
 
       padding:
         15px 34px;
 
+      background:
+        rgba(200,169,107,0.10);
+
       border:
-        1px solid var(--gold);
-      background: transparent;
-      color: var(--cream);
-      font-family: "Amiri", serif;
+        1px solid
+        var(--gold);
+
+      border-radius: 2px;
+
+      color:
+        var(--cream);
+
+      font-family:
+        "Amiri",
+        serif;
+
+      font-size: 17px;
+
       text-decoration: none;
 
-      font-size: 16px;
+      cursor: pointer;
 
       position: relative;
 
       overflow: hidden;
 
       transition:
+        background 0.4s ease,
         color 0.4s ease,
         transform 0.4s ease;
 
-      
-
-    .open-button::before {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background: var(--gold);
-
-      transform:
-        translateX(-105%);
-
-      transition:
-        transform 0.45s ease;
-
-      z-index: -1;
-    }
-
-    .open-button:hover::before {
-      transform:
-        translateX(0);
+      animation:
+        fadeUp 1.2s ease 1.9s both;
     }
 
     .open-button:hover {
-      color: var(--black);
-      transform: translateY(-3px);
+      background:
+        var(--gold);
+
+      color:
+        var(--black);
+
+      transform:
+        translateY(-3px);
     }
 
     /* =========================
@@ -255,13 +287,14 @@
       margin: auto;
 
       padding:
-        100px 22px;
+        95px 22px;
 
       text-align: center;
     }
 
     .section-label {
-      color: var(--gold);
+      color:
+        var(--gold);
 
       font-family:
         "Cormorant Garamond",
@@ -278,9 +311,10 @@
       margin:
         0 0 22px;
 
-      color: var(--cream);
+      color:
+        var(--cream);
 
-      font-size: 33px;
+      font-size: 32px;
 
       font-weight: 400;
     }
@@ -293,13 +327,15 @@
       margin:
         0 auto 32px;
 
-      background: var(--gold);
+      background:
+        var(--gold);
 
       opacity: 0.75;
     }
 
     .text {
-      color: #d8cfc0;
+      color:
+        #d8cfc0;
 
       font-size: 20px;
 
@@ -307,7 +343,7 @@
     }
 
     /* =========================
-       CARDS
+       CARD
     ========================== */
 
     .luxury-card {
@@ -340,7 +376,7 @@
     }
 
     /* =========================
-       BUTTON
+       NORMAL BUTTON
     ========================== */
 
     .button {
@@ -352,9 +388,11 @@
         14px 31px;
 
       border:
-        1px solid var(--gold);
+        1px solid
+        var(--gold);
 
-      color: var(--cream);
+      color:
+        var(--cream);
 
       text-decoration: none;
 
@@ -453,12 +491,14 @@
 
       from {
         opacity: 0;
+
         transform:
           translateY(25px);
       }
 
       to {
         opacity: 1;
+
         transform:
           translateY(0);
       }
@@ -479,27 +519,25 @@
 
     @keyframes glowMove {
 
-      0%,100% {
+      0%, 100% {
         transform:
-          scale(0.9);
+          scale(0.92);
 
-        opacity:
-          0.6;
+        opacity: 0.65;
       }
 
       50% {
         transform:
           scale(1.12);
 
-        opacity:
-          1;
+        opacity: 1;
       }
 
     }
 
     @keyframes heartPulse {
 
-      0%,100% {
+      0%, 100% {
         transform:
           scale(1);
       }
@@ -523,7 +561,7 @@
 
       .names {
         font-size:
-          clamp(52px, 17vw, 80px);
+          clamp(52px, 17vw, 82px);
       }
 
       .verse {
@@ -571,6 +609,7 @@
         بِكُلِّ الحُبّ
       </div>
 
+
       <h1 class="names">
 
         بَسّام
@@ -583,28 +622,32 @@
 
       </h1>
 
+
       <div class="date">
         06 · 10 · 2026
       </div>
+
 
       <p class="verse">
         «أَتَيْتُهَا، وَفِي قَلْبِي لَهَا وَطَرٌ…»
       </p>
 
-      <button
-  class="open-button"
-  id="openInvitation"
-  type="button"
->
-  اِفتحوا دعوتنا
-</button>
 
-<audio
-  id="weddingMusic"
-  src="wedding.mp3"
-  preload="auto"
-  loop
-></audio>
+      <button
+        class="open-button"
+        id="openInvitation"
+        type="button"
+      >
+        اِفتحوا دعوتنا
+      </button>
+
+
+      <audio
+        id="weddingMusic"
+        src="wedding.mp3"
+        preload="auto"
+        loop
+      ></audio>
 
     </div>
 
@@ -621,11 +664,14 @@
       OUR STORY
     </div>
 
+
     <h2>
       بداية عمرٍ جديد
     </h2>
 
+
     <div class="divider"></div>
+
 
     <p class="text">
 
@@ -650,11 +696,14 @@
       RSVP
     </div>
 
+
     <h2>
       ننتظركم 🤍
     </h2>
 
+
     <div class="divider"></div>
+
 
     <p class="text">
 
@@ -691,9 +740,11 @@
       THE WEDDING
     </div>
 
+
     <h2>
       تفاصيل الليلة
     </h2>
+
 
     <div class="divider"></div>
 
@@ -743,9 +794,11 @@
       COUNTDOWN
     </div>
 
+
     <h2>
       إلى أن نلتقي
     </h2>
+
 
     <div class="divider"></div>
 
@@ -844,10 +897,50 @@
 
 
   <!-- =========================
-       COUNTDOWN
+       JAVASCRIPT
   ========================== -->
 
   <script>
+
+    /* =========================
+       MUSIC + OPEN BUTTON
+    ========================== */
+
+    const openInvitation =
+      document.getElementById(
+        "openInvitation"
+      );
+
+    const weddingMusic =
+      document.getElementById(
+        "weddingMusic"
+      );
+
+
+    openInvitation.addEventListener(
+      "click",
+      function () {
+
+        weddingMusic.volume = 0.35;
+
+        weddingMusic.play().catch(
+          function () {}
+        );
+
+
+        document
+          .getElementById("invitation")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      }
+    );
+
+
+    /* =========================
+       COUNTDOWN
+    ========================== */
 
     const weddingDate =
       new Date(
@@ -904,24 +997,28 @@
         );
 
 
-      document.getElementById("days")
-        .textContent = days;
+      document.getElementById(
+        "days"
+      ).textContent = days;
 
 
-      document.getElementById("hours")
-        .textContent =
+      document.getElementById(
+        "hours"
+      ).textContent =
         String(hours)
         .padStart(2, "0");
 
 
-      document.getElementById("minutes")
-        .textContent =
+      document.getElementById(
+        "minutes"
+      ).textContent =
         String(minutes)
         .padStart(2, "0");
 
 
-      document.getElementById("seconds")
-        .textContent =
+      document.getElementById(
+        "seconds"
+      ).textContent =
         String(seconds)
         .padStart(2, "0");
 
@@ -930,21 +1027,12 @@
 
     updateCountdown();
 
+
     setInterval(
       updateCountdown,
       1000
     );
-const openInvitation = document.getElementById("openInvitation");
-const weddingMusic = document.getElementById("weddingMusic");
 
-openInvitation.addEventListener("click", function () {
-  weddingMusic.volume = 0.35;
-  weddingMusic.play();
-
-  document.getElementById("invitation").scrollIntoView({
-    behavior: "smooth"
-  });
-});
   </script>
 
 
