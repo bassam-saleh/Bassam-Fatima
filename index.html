@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+[7:29 am, 29/08/2026] BASSAM SALEH: Arabic cinematic ballad, melancholic male vocal, classical Arabic poetry, slow emotional tempo, oud, piano, qanun, cinematic strings, dramatic orchestral build, intimate verses, powerful heartbreaking chorus, emotional bridge, dark romantic atmosphere, deep warm vocal, spacious reverb, tragic ending
+[5:01 pm, 29/08/2026] BASSAM SALEH: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -343,6 +344,44 @@
     }
 
     /* =========================
+       PHOTO
+    ========================== */
+
+    .photo-section {
+      padding-top: 40px !important;
+    }
+
+    .wedding-photo {
+      display: block;
+
+      width: 100%;
+
+      max-width: 680px;
+
+      max-height: 850px;
+
+      object-fit: cover;
+
+      margin: 0 auto;
+
+      border:
+        1px solid
+        rgba(200,169,107,0.45);
+
+      padding: 8px;
+
+      background:
+        rgba(200,169,107,0.04);
+
+      box-shadow:
+        0 0 35px
+        rgba(200,169,107,0.08);
+
+      animation:
+        photoAppear 1.5s ease both;
+    }
+
+    /* =========================
        CARD
     ========================== */
 
@@ -459,6 +498,14 @@
     }
 
     /* =========================
+       RSVP
+    ========================== */
+
+    .rsvp-section {
+      padding-bottom: 80px !important;
+    }
+
+    /* =========================
        FOOTER
     ========================== */
 
@@ -549,6 +596,26 @@
 
     }
 
+    @keyframes photoAppear {
+
+      from {
+        opacity: 0;
+
+        transform:
+          scale(0.97)
+          translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          scale(1)
+          translateY(0);
+      }
+
+    }
+
     /* =========================
        MOBILE
     ========================== */
@@ -582,6 +649,12 @@
 
       .count-label {
         font-size: 10px;
+      }
+
+      .wedding-photo {
+        padding: 6px;
+
+        max-height: 650px;
       }
 
     }
@@ -687,45 +760,29 @@
 
 
   <!-- =========================
-       RSVP
+       PHOTO
   ========================== -->
 
-  <section>
+  <section class="photo-section">
 
     <div class="section-label">
-      RSVP
+      OUR MOMENT
     </div>
 
 
     <h2>
-      ننتظركم 🤍
+      أجمل لحظاتنا
     </h2>
 
 
     <div class="divider"></div>
 
 
-    <p class="text">
-
-      وجودكم معنا
-      هو أجمل ما يمكن أن نهديه
-      لهذه الليلة.
-
-      <br>
-
-      يرجى تأكيد حضوركم.
-
-    </p>
-
-
-    <a
-      class="button"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSeKvNTjXD9WTgxtQiHk9a458novvyNFnKJ76aOxDxalsbKdjg/viewform?usp=dialog"
-      target="_blank"
-      rel="noopener"
+    <img
+      class="wedding-photo"
+      src="73bd5fa9-d483-48db-bb5b-5b448ac98f34.jpeg"
+      alt="بسام وفاطمة"
     >
-      💌 تأكيد الحضور
-    </a>
 
   </section>
 
@@ -871,6 +928,50 @@
 
 
     </div>
+
+  </section>
+
+
+  <!-- =========================
+       RSVP - LAST SECTION
+  ========================== -->
+
+  <section class="rsvp-section">
+
+    <div class="section-label">
+      RSVP
+    </div>
+
+
+    <h2>
+      ننتظركم 🤍
+    </h2>
+
+
+    <div class="divider"></div>
+
+
+    <p class="text">
+
+      وجودكم معنا
+      هو أجمل ما يمكن أن نهديه
+      لهذه الليلة.
+
+      <br>
+
+      يرجى تأكيد حضوركم.
+
+    </p>
+
+
+    <a
+      class="button"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeKvNTjXD9WTgxtQiHk9a458novvyNFnKJ76aOxDxalsbKdjg/viewform?usp=dialog"
+      target="_blank"
+      rel="noopener"
+    >
+      💌 تأكيد الحضور
+    </a>
 
   </section>
 
