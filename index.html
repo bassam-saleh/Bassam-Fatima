@@ -1,32 +1,24 @@
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Bassam ♥️ Fatima</title>
-
   <meta name="theme-color" content="#0b0a09">
-
   <style>
-
     @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
-
     :root {
       --gold: #c8a96b;
       --light-gold: #e0c993;
       --cream: #f5efe5;
-      --muted: #aaa092;
       --black: #0b0a09;
     }
-
     * {
       box-sizing: border-box;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       margin: 0;
       background: var(--black);
@@ -34,23 +26,240 @@
       font-family: "Amiri", serif;
       overflow-x: hidden;
     }
-
-    /* =========================
-       OPENING
-    ========================== */
-
-    .opening {
-      min-height: 100svh;
-      position: relative;
-
+    /* =====================================
+       CINEMATIC INTRO
+    ====================================== */
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
-
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(200,169,107,0.12),
+          transparent 38%
+        ),
+        #0b0a09;
+      transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+    }
+    .intro.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .intro-frame {
+      position: absolute;
+      inset: 17px;
+      border:
+        1px solid
+        rgba(200,169,107,0.35);
+    }
+    .intro-frame::before,
+    .intro-frame::after {
+      content: "";
+      position: absolute;
+      width: 65px;
+      height: 65px;
+      border-color: var(--gold);
+      opacity: 0.75;
+    }
+    .intro-frame::before {
+      top: -1px;
+      right: -1px;
+      border-top: 1px solid;
+      border-right: 1px solid;
+    }
+    .intro-frame::after {
+      bottom: -1px;
+      left: -1px;
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+    }
+    .intro-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
-
+      padding: 25px;
+      animation:
+        introAppear 2s ease both;
+    }
+    .intro-small {
+      color: var(--gold);
+      font-family:
+        "Cormorant Garamond",
+        serif;
+      font-size: 15px;
+      letter-spacing: 7px;
+      margin-bottom: 28px;
+    }
+    .intro-names {
+      margin: 0;
+      font-size:
+        clamp(48px, 14vw, 92px);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    .intro-heart {
+      display: inline-block;
+      color: var(--gold);
+      font-family:
+        "Cormorant Garamond",
+        serif;
+      font-size: 0.55em;
+      margin: 0 7px;
+      animation:
+        heartPulse 2.5s ease-in-out infinite;
+    }
+    .intro-date {
+      margin-top: 25px;
+      color: var(--light-gold);
+      font-family:
+        "Cormorant Garamond",
+        serif;
+      font-size: 20px;
+      letter-spacing: 6px;
+    }
+    .intro-line {
+      width: 55px;
+      height: 1px;
+      margin: 30px auto;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+    .intro-enter {
+      border: 1px solid var(--gold);
+      background:
+        rgba(200,169,107,0.08);
+      color: var(--cream);
+      padding:
+        14px 34px;
+      font-family:
+        "Amiri",
+        serif;
+      font-size: 17px;
+      cursor: pointer;
+      transition:
+        all 0.4s ease;
+    }
+    .intro-enter:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform:
+        translateY(-3px);
+    }
+    .intro-enter:active {
+      transform:
+        scale(0.97);
+    }
+    .intro-note {
+      margin-top: 17px;
+      color: #82796d;
+      font-size: 13px;
+    }
+    @keyframes introAppear {
+      from {
+        opacity: 0;
+        transform:
+          translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform:
+          translateY(0);
+      }
+    }
+    /* =====================================
+       PARTICLES
+    ====================================== */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
       overflow: hidden;
-
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background:
+        var(--gold);
+      opacity: 0;
+      animation:
+        floatParticle linear infinite;
+    }
+    .particle:nth-child(1) {
+      left: 8%;
+      animation-duration: 10s;
+      animation-delay: 1s;
+    }
+    .particle:nth-child(2) {
+      left: 19%;
+      animation-duration: 13s;
+      animation-delay: 4s;
+    }
+    .particle:nth-child(3) {
+      left: 32%;
+      animation-duration: 9s;
+      animation-delay: 2s;
+    }
+    .particle:nth-child(4) {
+      left: 46%;
+      animation-duration: 14s;
+      animation-delay: 5s;
+    }
+    .particle:nth-child(5) {
+      left: 61%;
+      animation-duration: 11s;
+      animation-delay: 3s;
+    }
+    .particle:nth-child(6) {
+      left: 74%;
+      animation-duration: 15s;
+      animation-delay: 6s;
+    }
+    .particle:nth-child(7) {
+      left: 88%;
+      animation-duration: 10s;
+      animation-delay: 2s;
+    }
+    @keyframes floatParticle {
+      0% {
+        transform:
+          translateY(105vh)
+          scale(0.5);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.5;
+      }
+      70% {
+        opacity: 0.25;
+      }
+      100% {
+        transform:
+          translateY(-10vh)
+          scale(1.2);
+        opacity: 0;
+      }
+    }
+    /* =====================================
+       OPENING
+    ====================================== */
+    .opening {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
       background:
         radial-gradient(
           circle at center,
@@ -59,1016 +268,1050 @@
         ),
         #0b0a09;
     }
-
     .glow {
       position: absolute;
-
       width: 430px;
       height: 430px;
-
       border-radius: 50%;
-
       background:
         radial-gradient(
           circle,
           rgba(200,169,107,0.13),
           transparent 68%
         );
-
       animation:
         glowMove 7s ease-in-out infinite;
     }
-
     .frame {
       position: absolute;
-
       inset: 16px;
-
       border:
         1px solid
         rgba(200,169,107,0.35);
-
       pointer-events: none;
     }
-
     .frame::before,
     .frame::after {
       content: "";
-
       position: absolute;
-
       width: 55px;
       height: 55px;
-
       border-color:
         var(--gold);
-
       opacity: 0.7;
     }
-
     .frame::before {
       top: -1px;
       right: -1px;
-
       border-top: 1px solid;
       border-right: 1px solid;
     }
-
     .frame::after {
       bottom: -1px;
       left: -1px;
-
       border-bottom: 1px solid;
       border-left: 1px solid;
     }
-
     .opening-content {
       position: relative;
-
       z-index: 5;
-
       padding: 25px;
-
       animation:
         entrance 1.5s ease forwards;
     }
-
     .eyebrow {
       color:
         var(--gold);
-
       font-family:
         "Cormorant Garamond",
         serif;
-
       font-size: 15px;
-
       letter-spacing: 6px;
-
       margin-bottom: 25px;
-
       animation:
         fadeUp 1.2s ease 0.2s both;
     }
-
     .names {
       margin: 0;
-
       font-size:
         clamp(54px, 15vw, 105px);
-
       font-weight: 400;
-
       line-height: 1;
-
       animation:
         fadeUp 1.4s ease 0.5s both;
     }
-
     .heart {
       display: inline-block;
-
       color:
         var(--gold);
-
       font-family:
         "Cormorant Garamond",
         serif;
-
       font-size: 0.55em;
-
       margin: 0 8px;
-
       animation:
         heartPulse 2.5s ease-in-out 2s infinite;
     }
-
     .date {
       margin-top: 28px;
-
       color:
         var(--light-gold);
-
       font-family:
         "Cormorant Garamond",
         serif;
-
       font-size: 22px;
-
       letter-spacing: 7px;
-
       animation:
         fadeUp 1.2s ease 1s both;
     }
-
     .verse {
       max-width: 550px;
-
       margin:
         38px auto 0;
-
       color:
         #e5dccd;
-
       font-size: 20px;
-
       line-height: 2.1;
-
       animation:
         fadeUp 1.2s ease 1.4s both;
     }
-
-    /* =========================
+    /* =====================================
        OPEN BUTTON
-    ========================== */
-
+    ====================================== */
     .open-button {
       display: inline-block;
-
       margin-top: 38px;
-
       padding:
         15px 34px;
-
       background:
         rgba(200,169,107,0.10);
-
       border:
         1px solid
         var(--gold);
-
       border-radius: 2px;
-
       color:
         var(--cream);
-
       font-family:
         "Amiri",
         serif;
-
       font-size: 17px;
-
       text-decoration: none;
-
       cursor: pointer;
-
-      position: relative;
-
-      overflow: hidden;
-
       transition:
         background 0.4s ease,
         color 0.4s ease,
-        transform 0.4s ease;
-
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
       animation:
         fadeUp 1.2s ease 1.9s both;
     }
-
     .open-button:hover {
       background:
         var(--gold);
-
       color:
         var(--black);
-
       transform:
         translateY(-3px);
+      box-shadow:
+        0 8px 30px
+        rgba(200,169,107,0.15);
     }
-
-    /* =========================
+    /* =====================================
        SECTIONS
-    ========================== */
-
+    ====================================== */
     section:not(.opening) {
       max-width: 780px;
-
       margin: auto;
-
       padding:
         95px 22px;
-
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
-
+    .reveal {
+      opacity: 0;
+      transform:
+        translateY(35px);
+      transition:
+        opacity 1s ease,
+        transform 1s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform:
+        translateY(0);
+    }
     .section-label {
       color:
         var(--gold);
-
       font-family:
         "Cormorant Garamond",
         serif;
-
       font-size: 14px;
-
       letter-spacing: 5px;
-
       margin-bottom: 12px;
     }
-
     h2 {
       margin:
         0 0 22px;
-
       color:
         var(--cream);
-
       font-size: 32px;
-
       font-weight: 400;
     }
-
     .divider {
       width: 60px;
-
       height: 1px;
-
       margin:
         0 auto 32px;
-
       background:
         var(--gold);
-
       opacity: 0.75;
     }
-
     .text {
       color:
         #d8cfc0;
-
       font-size: 20px;
-
       line-height: 2.1;
     }
-
-    /* =========================
-       PHOTO
-    ========================== */
-
-    .photo-section {
-      padding-top: 40px !important;
+    /* =====================================
+       GALLERY
+    ====================================== */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns:
+        repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 35px;
     }
-
-    .wedding-photo {
-      display: block;
-
+    .photo-gallery img {
       width: 100%;
-
-      max-width: 680px;
-
-      max-height: 850px;
-
+      aspect-ratio:
+        1 / 1;
       object-fit: cover;
-
-      margin: 0 auto;
-
-      border:
-        1px solid
-        rgba(200,169,107,0.45);
-
-      padding: 8px;
-
-      background:
-        rgba(200,169,107,0.04);
-
-      box-shadow:
-        0 0 35px
-        rgba(200,169,107,0.08);
-
-      animation:
-        photoAppear 1.5s ease both;
-    }
-
-    /* =========================
-       CARD
-    ========================== */
-
-    .luxury-card {
-      padding:
-        38px 24px;
-
+      display: block;
       border:
         1px solid
         rgba(200,169,107,0.28);
-
-      background:
-        rgba(255,255,255,0.018);
-
+      cursor: pointer;
       transition:
         transform 0.5s ease,
-        border-color 0.5s ease;
+        border-color 0.5s ease,
+        filter 0.5s ease;
     }
-
+    .photo-gallery img:hover {
+      transform:
+        scale(1.02);
+      border-color:
+        rgba(200,169,107,0.65);
+      filter:
+        brightness(1.08);
+    }
+    /* =====================================
+       LIGHTBOX
+    ====================================== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background:
+        rgba(5,4,3,0.96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+      z-index: 10000;
+    }
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border:
+        1px solid
+        rgba(200,169,107,0.45);
+      transform:
+        scale(0.92);
+      transition:
+        transform 0.4s ease;
+    }
+    .lightbox.active img {
+      transform:
+        scale(1);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      color:
+        var(--light-gold);
+      font-size: 32px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    /* =====================================
+       CARD
+    ====================================== */
+    .luxury-card {
+      padding:
+        38px 24px;
+      border:
+        1px solid
+        rgba(200,169,107,0.28);
+      background:
+        rgba(255,255,255,0.018);
+      transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+    }
     .luxury-card:hover {
       transform:
         translateY(-5px);
-
       border-color:
         rgba(200,169,107,0.6);
+      box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.18);
     }
-
     .luxury-card strong {
       color:
         var(--light-gold);
     }
-
-    /* =========================
-       NORMAL BUTTON
-    ========================== */
-
-    .button {
-      display: inline-block;
-
-      margin-top: 28px;
-
-      padding:
-        14px 31px;
-
-      border:
-        1px solid
-        var(--gold);
-
-      color:
-        var(--cream);
-
-      text-decoration: none;
-
-      transition:
-        all 0.4s ease;
-    }
-
-    .button:hover {
-      background:
-        var(--gold);
-
-      color:
-        var(--black);
-
-      transform:
-        translateY(-2px);
-    }
-
-    /* =========================
-       COUNTDOWN
-    ========================== */
-
-    .countdown {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 10px;
-
-      margin-top: 35px;
-    }
-
-    .count-box {
-      padding:
-        20px 5px;
-
-      border:
-        1px solid
-        rgba(200,169,107,0.23);
-
-      background:
-        rgba(255,255,255,0.018);
-    }
-
-    .count-number {
-      display: block;
-
+    .event-title {
       color:
         var(--light-gold);
-
       font-family:
         "Cormorant Garamond",
         serif;
-
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+    /* =====================================
+       BUTTON
+    ====================================== */
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding:
+        14px 31px;
+      border:
+        1px solid
+        var(--gold);
+      color:
+        var(--cream);
+      text-decoration: none;
+      transition:
+        all 0.4s ease;
+    }
+    .button:hover {
+      background:
+        var(--gold);
+      color:
+        var(--black);
+      transform:
+        translateY(-2px);
+      box-shadow:
+        0 8px 25px
+        rgba(200,169,107,0.12);
+    }
+    /* =====================================
+       COUNTDOWN
+    ====================================== */
+    .countdown {
+      display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 35px;
+    }
+    .count-box {
+      padding:
+        20px 5px;
+      border:
+        1px solid
+        rgba(200,169,107,0.23);
+      background:
+        rgba(255,255,255,0.018);
+      transition:
+        border-color 0.4s ease,
+        transform 0.4s ease;
+    }
+    .count-box:hover {
+      border-color:
+        rgba(200,169,107,0.55);
+      transform:
+        translateY(-3px);
+    }
+    .count-number {
+      display: block;
+      color:
+        var(--light-gold);
+      font-family:
+        "Cormorant Garamond",
+        serif;
       font-size: 34px;
     }
-
     .count-label {
       color:
         #958c7e;
-
       font-size: 12px;
     }
-
-    /* =========================
-       RSVP
-    ========================== */
-
-    .rsvp-section {
-      padding-bottom: 80px !important;
+    .wedding-message {
+      display: none;
+      margin-top: 35px;
+      color:
+        var(--light-gold);
+      font-size: 26px;
     }
-
-    /* =========================
+    /* =====================================
+       CHILDREN NOTE
+    ====================================== */
+    .children-note {
+      padding:
+        40px 20px 25px;
+      text-align: center;
+      color:
+        var(--light-gold);
+      font-size: 23px;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 2;
+    }
+    .children-note::before {
+      content: "✦";
+      display: block;
+      color:
+        var(--gold);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    /* =====================================
        FOOTER
-    ========================== */
-
+    ====================================== */
     footer {
       padding:
         75px 20px 95px;
-
       text-align: center;
-
       color:
         #918777;
-
       border-top:
         1px solid
         rgba(200,169,107,0.12);
+      position: relative;
+      z-index: 2;
     }
-
     .footer-names {
       color:
         var(--light-gold);
-
       font-size: 29px;
     }
-
-    /* =========================
+    /* =====================================
        ANIMATIONS
-    ========================== */
-
+    ====================================== */
     @keyframes fadeUp {
-
       from {
         opacity: 0;
-
         transform:
           translateY(25px);
       }
-
       to {
         opacity: 1;
-
         transform:
           translateY(0);
       }
-
     }
-
     @keyframes entrance {
-
       from {
         opacity: 0;
       }
-
       to {
         opacity: 1;
       }
-
     }
-
     @keyframes glowMove {
-
       0%, 100% {
         transform:
           scale(0.92);
-
         opacity: 0.65;
       }
-
       50% {
         transform:
           scale(1.12);
-
         opacity: 1;
       }
-
     }
-
     @keyframes heartPulse {
-
       0%, 100% {
         transform:
           scale(1);
       }
-
       50% {
         transform:
           scale(1.18);
       }
-
     }
-
-    @keyframes photoAppear {
-
-      from {
-        opacity: 0;
-
-        transform:
-          scale(0.97)
-          translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-
-        transform:
-          scale(1)
-          translateY(0);
-      }
-
-    }
-
-    /* =========================
+    /* =====================================
        MOBILE
-    ========================== */
-
+    ====================================== */
     @media (max-width: 520px) {
-
       .frame {
         inset: 11px;
       }
-
+      .intro-frame {
+        inset: 11px;
+      }
+      .intro-names {
+        font-size:
+          clamp(45px, 15vw, 75px);
+      }
       .names {
         font-size:
           clamp(52px, 17vw, 82px);
       }
-
       .verse {
         font-size: 18px;
       }
-
       .text {
         font-size: 18px;
       }
-
+      .photo-gallery {
+        gap: 8px;
+      }
       .countdown {
         gap: 6px;
       }
-
       .count-number {
         font-size: 25px;
       }
-
       .count-label {
         font-size: 10px;
       }
-
-      .wedding-photo {
-        padding: 6px;
-
-        max-height: 650px;
+      .children-note {
+        font-size: 21px;
       }
-
     }
-
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          0.01ms !important;
+        animation-iteration-count:
+          1 !important;
+        scroll-behavior:
+          auto !important;
+        transition-duration:
+          0.01ms !important;
+      }
+    }
   </style>
 </head>
-
-
 <body>
-
-
-  <!-- =========================
-       OPENING
-  ========================== -->
-
-  <section class="opening">
-
-    <div class="glow"></div>
-
-    <div class="frame"></div>
-
-    <div class="opening-content">
-
-      <div class="eyebrow">
-        بِكُلِّ الحُبّ
-      </div>
-
-
-      <h1 class="names">
-
-        بَسّام
-
-        <span class="heart">
-          ♥️
-        </span>
-
-        فاطمة
-
-      </h1>
-
-
-      <div class="date">
-        06 · 10 · 2026
-      </div>
-
-
-      <p class="verse">
-        «أَتَيْتُهَا، وَفِي قَلْبِي لَهَا وَطَرٌ…»
-      </p>
-
-
-      <button
-        class="open-button"
-        id="openInvitation"
-        type="button"
-      >
-        اِفتحوا دعوتنا
-      </button>
-
-
-      <audio
-        id="weddingMusic"
-        src="wedding.mp3"
-        preload="auto"
-        loop
-      ></audio>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       INVITATION
-  ========================== -->
-
-  <section id="invitation">
-
-    <div class="section-label">
-      OUR STORY
-    </div>
-
-
-    <h2>
-      بداية عمرٍ جديد
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <p class="text">
-
-      بكل الحب والفرح،
-      ندعوكم لمشاركتنا
-      أجمل ليلة في حياتنا،
-      والاحتفال معنا
-      ببداية فصلٍ جديد.
-
-    </p>
-
-  </section>
-
-
-  <!-- =========================
-       PHOTO
-  ========================== -->
-
-  <section class="photo-section">
-
-    <div class="section-label">
-      OUR MOMENT
-    </div>
-
-
-    <h2>
-      أجمل لحظاتنا
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <img
-      class="wedding-photo"
-      src="73bd5fa9-d483-48db-bb5b-5b448ac98f34.jpeg"
-      alt="بسام وفاطمة"
-    >
-
-  </section>
-
-
-  <!-- =========================
-       EVENT
-  ========================== -->
-
-  <section>
-
-    <div class="section-label">
-      THE WEDDING
-    </div>
-
-
-    <h2>
-      تفاصيل الليلة
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <div class="luxury-card text">
-
-      الثلاثاء
-
-      <br>
-
-      <strong>
-        ٦ تشرين الأول ٢٠٢٦
-      </strong>
-
-      <br><br>
-
-      Lalaland
-
-      <br>
-
-      الصرفند
-
-      <br><br>
-
-
-      <a
-        class="button"
-        href="https://maps.app.goo.gl/1f9cspKWmxJrocg49?g_st=ic"
-        target="_blank"
-        rel="noopener"
-      >
-        📍 الوصول إلى الحفل
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       COUNTDOWN
-  ========================== -->
-
-  <section>
-
-    <div class="section-label">
-      COUNTDOWN
-    </div>
-
-
-    <h2>
-      إلى أن نلتقي
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <div class="countdown">
-
-
-      <div class="count-box">
-
-        <span
-          class="count-number"
-          id="days"
-        >
-          0
-        </span>
-
-        <span class="count-label">
-          يوم
-        </span>
-
-      </div>
-
-
-      <div class="count-box">
-
-        <span
-          class="count-number"
-          id="hours"
-        >
-          0
-        </span>
-
-        <span class="count-label">
-          ساعة
-        </span>
-
-      </div>
-
-
-      <div class="count-box">
-
-        <span
-          class="count-number"
-          id="minutes"
-        >
-          0
-        </span>
-
-        <span class="count-label">
-          دقيقة
-        </span>
-
-      </div>
-
-
-      <div class="count-box">
-
-        <span
-          class="count-number"
-          id="seconds"
-        >
-          0
-        </span>
-
-        <span class="count-label">
-          ثانية
-        </span>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       RSVP - LAST SECTION
-  ========================== -->
-
-  <section class="rsvp-section">
-
-    <div class="section-label">
-      RSVP
-    </div>
-
-
-    <h2>
-      ننتظركم 🤍
-    </h2>
-
-
-    <div class="divider"></div>
-
-
-    <p class="text">
-
-      وجودكم معنا
-      هو أجمل ما يمكن أن نهديه
-      لهذه الليلة.
-
-      <br>
-
-      يرجى تأكيد حضوركم.
-
-    </p>
-
-
-    <a
-      class="button"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSeKvNTjXD9WTgxtQiHk9a458novvyNFnKJ76aOxDxalsbKdjg/viewform?usp=dialog"
-      target="_blank"
-      rel="noopener"
-    >
-      💌 تأكيد الحضور
-    </a>
-
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    <div class="footer-names">
-      بَسّام ♥️ فاطمة
-    </div>
-
-    <br>
-
+  <!-- =====================================
+       CINEMATIC INTRO
+  ====================================== -->
+  <div
+    class="intro"
+    id="intro"
+  >
+<div class="intro-frame"></div>
+<div class="intro-content">
+  <div class="intro-small">
+    بِكُلِّ الحُبّ
+  </div>
+  <h1 class="intro-names">
+    بَسّام
+    <span class="intro-heart">
+      ♥️
+    </span>
+    فاطمة
+  </h1>
+  <div class="intro-date">
     06 · 10 · 2026
-
-    <br><br>
-
-    بالحُب تبدأ الحكاية 🤍
-
+  </div>
+  <div class="intro-line"></div>
+  <button
+    class="intro-enter"
+    id="enterInvitation"
+    type="button"
+  >
+    اِفتحوا دعوتنا
+  </button>
+  <div class="intro-note">
+    لحظةٌ لنا... نتمنى أن تكون ذكرى لكم 🤍
+  </div>
+</div>
+  </div>
+  <!-- =====================================
+       PARTICLES
+  ====================================== -->
+  <div
+    class="particles"
+    aria-hidden="true"
+  >
+<span class="particle"></span>
+<span class="particle"></span>
+<span class="particle"></span>
+<span class="particle"></span>
+<span class="particle"></span>
+<span class="particle"></span>
+<span class="particle"></span>
+  </div>
+  <!-- =====================================
+       OPENING
+  ====================================== -->
+  <section class="opening">
+<div class="glow"></div>
+<div class="frame"></div>
+<div class="opening-content">
+  <div class="eyebrow">
+    بِكُلِّ الحُبّ
+  </div>
+  <h1 class="names">
+    بَسّام
+    <span class="heart">
+      ♥️
+    </span>
+    فاطمة
+  </h1>
+  <div class="date">
+    06 · 10 · 2026
+  </div>
+  <p class="verse">
+    «أَتَيْتُهَا، وَفِي قَلْبِي لَهَا وَطَرٌ…»
+  </p>
+  <button
+    class="open-button"
+    id="openInvitation"
+    type="button"
+  >
+    اِفتحوا دعوتنا
+  </button>
+  <audio
+    id="weddingMusic"
+    src="wedding.mp3"
+    preload="auto"
+    loop
+  ></audio>
+</div>
+  </section>
+  <!-- =====================================
+       STORY
+  ====================================== -->
+  <section
+    id="invitation"
+    class="reveal"
+  >
+<div class="section-label">
+  OUR STORY
+</div>
+<h2>
+  بداية عمرٍ جديد
+</h2>
+<div class="divider"></div>
+<p class="text">
+  بكل الحب والفرح،
+  ندعوكم لمشاركتنا
+  أجمل ليلة في حياتنا،
+  والاحتفال معنا
+  ببداية فصلٍ جديد.
+</p>
+  </section>
+  <!-- =====================================
+       GALLERY
+  ====================================== -->
+  <section class="reveal">
+<div class="section-label">
+  OUR MOMENTS
+</div>
+<h2>
+  لحظات منّا 🤍
+</h2>
+<div class="divider"></div>
+<div class="photo-gallery">
+  <img
+    src="telegram-photo-0-6044219583910055427.jpeg"
+    alt="Bassam & Fatima"
+  >
+  <img
+    src="telegram-photo-0-6044219583910055428.jpeg"
+    alt="Bassam & Fatima"
+  >
+  <img
+    src="IMG_9816.jpeg"
+    alt="Bassam & Fatima"
+  >
+  <img
+    src="IMG_5170.jpeg"
+    alt="Bassam & Fatima"
+  >
+  <img
+    src="IMG_4458.jpeg"
+    alt="Bassam & Fatima"
+  >
+  <img
+    src="IMG_4370.jpeg"
+    alt="Bassam & Fatima"
+  >
+</div>
+  </section>
+  <!-- =====================================
+       RSVP
+  ====================================== -->
+  <section class="reveal">
+<div class="section-label">
+  RSVP
+</div>
+<h2>
+  ننتظركم 🤍
+</h2>
+<div class="divider"></div>
+<p class="text">
+  وجودكم معنا
+  هو أجمل ما يمكن أن نهديه
+  لهذه الليلة.
+  <br>
+  يرجى تأكيد حضوركم.
+</p>
+<a
+  class="button"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSeKvNTjXD9WTgxtQiHk9a458novvyNFnKJ76aOxDxalsbKdjg/viewform?usp=dialog"
+  target="_blank"
+  rel="noopener"
+>
+  💌 تأكيد الحضور
+</a>
+  </section>
+  <!-- =====================================
+       EVENT
+  ====================================== -->
+  <section class="reveal">
+<div class="section-label">
+  THE WEDDING
+</div>
+<h2>
+  تفاصيل الليلة
+</h2>
+<div class="divider"></div>
+<div class="luxury-card text">
+  <div class="event-title">
+    الثلاثاء
+  </div>
+  <br>
+  <strong>
+    ٦ تشرين الأول ٢٠٢٦
+  </strong>
+  <br><br>
+  <div class="event-title">
+    Lalaland
+  </div>
+  <br>
+  الصرفند
+  <br>
+  <a
+    class="button"
+    href="https://maps.app.goo.gl/1f9cspKWmxJrocg49?g_st=ic"
+    target="_blank"
+    rel="noopener"
+  >
+    📍 الوصول إلى الحفل
+  </a>
+</div>
+  </section>
+  <!-- =====================================
+       COUNTDOWN
+  ====================================== -->
+  <section class="reveal">
+<div class="section-label">
+  COUNTDOWN
+</div>
+<h2>
+  إلى أن نلتقي
+</h2>
+<div class="divider"></div>
+<div
+  class="countdown"
+  id="countdown"
+>
+  <div class="count-box">
+    <span
+      class="count-number"
+      id="days"
+    >
+      0
+    </span>
+    <span class="count-label">
+      يوم
+    </span>
+  </div>
+  <div class="count-box">
+    <span
+      class="count-number"
+      id="hours"
+    >
+      0
+    </span>
+    <span class="count-label">
+      ساعة
+    </span>
+  </div>
+  <div class="count-box">
+    <span
+      class="count-number"
+      id="minutes"
+    >
+      0
+    </span>
+    <span class="count-label">
+      دقيقة
+    </span>
+  </div>
+  <div class="count-box">
+    <span
+      class="count-number"
+      id="seconds"
+    >
+      0
+    </span>
+    <span class="count-label">
+      ثانية
+    </span>
+  </div>
+</div>
+<div
+  class="wedding-message"
+  id="weddingMessage"
+>
+  اليوم بدأت حكايتنا ❤️
+</div>
+  </section>
+  <!-- =====================================
+       CHILDREN NOTE
+  ====================================== -->
+  <div class="children-note">
+    جنّة الأطفال منازلهم
+  </div>
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+  <footer>
+<div class="footer-names">
+  بَسّام ♥️ فاطمة
+</div>
+<br>
+06 · 10 · 2026
+<br><br>
+بالحُب تبدأ الحكاية 🤍
   </footer>
-
-
-  <!-- =========================
+  <!-- =====================================
+       LIGHTBOX
+  ====================================== -->
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="عرض الصورة"
+  >
+<span
+  class="lightbox-close"
+  id="lightboxClose"
+  aria-label="إغلاق"
+>
+  ×
+</span>
+<img
+  id="lightboxImage"
+  src=""
+  alt="Bassam & Fatima"
+>
+  </div>
+  <!-- =====================================
        JAVASCRIPT
-  ========================== -->
-
+  ====================================== -->
   <script>
-
-    /* =========================
-       MUSIC + OPEN BUTTON
-    ========================== */
-
-    const openInvitation =
+    /* =====================================
+       CINEMATIC INTRO
+    ====================================== */
+    const intro =
+      document.getElementById("intro");
+    const enterInvitation =
       document.getElementById(
-        "openInvitation"
+        "enterInvitation"
       );
-
     const weddingMusic =
       document.getElementById(
         "weddingMusic"
       );
-
-
+    function enterSite() {
+      weddingMusic.volume = 0.35;
+      weddingMusic.play().catch(
+        function () {}
+      );
+      intro.classList.add("hide");
+      document.body.style.overflow = "";
+    }
+    enterInvitation.addEventListener(
+      "click",
+      enterSite
+    );
+    /* =====================================
+       OPEN BUTTON
+    ====================================== */
+    const openInvitation =
+      document.getElementById(
+        "openInvitation"
+      );
     openInvitation.addEventListener(
       "click",
       function () {
-
         weddingMusic.volume = 0.35;
-
         weddingMusic.play().catch(
           function () {}
         );
-
-
         document
           .getElementById("invitation")
           .scrollIntoView({
             behavior: "smooth"
           });
-
       }
     );
-
-
-    /* =========================
+    /* =====================================
+       SECTION REVEAL
+    ====================================== */
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
+      );
+    const revealObserver =
+      new IntersectionObserver(
+        function(entries) {
+          entries.forEach(
+            function(entry) {
+              if (
+                entry.isIntersecting
+              ) {
+                entry.target.classList.add(
+                  "visible"
+                );
+                revealObserver.unobserve(
+                  entry.target
+                );
+              }
+            }
+          );
+        },
+        {
+          threshold: 0.15
+        }
+      );
+    revealElements.forEach(
+      function(element) {
+        revealObserver.observe(element);
+      }
+    );
+    /* =====================================
+       PHOTO LIGHTBOX
+    ====================================== */
+    const galleryImages =
+      document.querySelectorAll(
+        ".photo-gallery img"
+      );
+    const lightbox =
+      document.getElementById(
+        "lightbox"
+      );
+    const lightboxImage =
+      document.getElementById(
+        "lightboxImage"
+      );
+    const lightboxClose =
+      document.getElementById(
+        "lightboxClose"
+      );
+    galleryImages.forEach(
+      function(image) {
+        image.addEventListener(
+          "click",
+          function() {
+            lightboxImage.src =
+              image.src;
+            lightboxImage.alt =
+              image.alt;
+            lightbox.classList.add(
+              "active"
+            );
+            document.body.style.overflow =
+              "hidden";
+          }
+        );
+      }
+    );
+    function closeLightbox() {
+      lightbox.classList.remove(
+        "active"
+      );
+      document.body.style.overflow =
+        "";
+    }
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
+    lightbox.addEventListener(
+      "click",
+      function(event) {
+        if (
+          event.target === lightbox
+        ) {
+          closeLightbox();
+        }
+      }
+    );
+    document.addEventListener(
+      "keydown",
+      function(event) {
+        if (
+          event.key === "Escape"
+        ) {
+          closeLightbox();
+        }
+      }
+    );
+    /* =====================================
        COUNTDOWN
-    ========================== */
-
+    ====================================== */
     const weddingDate =
       new Date(
         "2026-10-06T20:00:00+03:00"
       ).getTime();
-
-
     function updateCountdown() {
-
       const now =
         new Date().getTime();
-
-
-      let distance =
+      const distance =
         weddingDate - now;
-
-
-      if (distance < 0) {
-        distance = 0;
+      if (distance <= 0) {
+        document.getElementById(
+          "countdown"
+        ).style.display = "none";
+        document.getElementById(
+          "weddingMessage"
+        ).style.display = "block";
+        return;
       }
-
-
       const days =
         Math.floor(
           distance /
           (1000 * 60 * 60 * 24)
         );
-
-
       const hours =
         Math.floor(
           (distance %
@@ -1076,8 +1319,6 @@
           /
           (1000 * 60 * 60)
         );
-
-
       const minutes =
         Math.floor(
           (distance %
@@ -1085,8 +1326,6 @@
           /
           (1000 * 60)
         );
-
-
       const seconds =
         Math.floor(
           (distance %
@@ -1094,46 +1333,30 @@
           /
           1000
         );
-
-
       document.getElementById(
         "days"
       ).textContent = days;
-
-
       document.getElementById(
         "hours"
       ).textContent =
         String(hours)
         .padStart(2, "0");
-
-
       document.getElementById(
         "minutes"
       ).textContent =
         String(minutes)
         .padStart(2, "0");
-
-
       document.getElementById(
         "seconds"
       ).textContent =
         String(seconds)
         .padStart(2, "0");
-
     }
-
-
     updateCountdown();
-
-
     setInterval(
       updateCountdown,
       1000
     );
-
   </script>
-
-
 </body>
 </html>
